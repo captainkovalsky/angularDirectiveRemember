@@ -1,0 +1,16 @@
+<style>
+  .poll{
+    padding: 15px 4px;
+    display: inline-block;
+    max-width: 200px;
+  }
+</style>
+<div class="poll {{styleClass}}">
+<img ng-if="!loadedPoll" src="ajax-loader.gif" />
+
+<div ng-if="loadedPoll">
+<p>Poll has been loaded</p>
+<button ng-click="submitAnswer();">Submit</button> 
+
+</div>
+</div>
