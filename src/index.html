@@ -4,7 +4,11 @@
     <head>
       <script src="/../bower_components/angular/angular.js"> </script>
       <script src="/../bower_components/angular-resource/angular-resource.js"> </script>
-      <script src="script.js"></script>
+      <script src="main.js"></script>
+
+      <script src="app/app-controller.js"></script>
+      <script src="app/app-poll-factory.js"></script>
+      <script src="app/app-poll-directive.js"></script>
 
       <style>
         
@@ -19,7 +23,7 @@
       </style>
     </head>
 
-    <body ng-controller="MainController as ctrl">
+    <body ng-controller="AppController as ctrl">
       <poll poll-id="1" style-class="gray"></poll>
       <poll poll-id="2" style-class="cyan"></poll>
     </body>

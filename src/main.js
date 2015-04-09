@@ -4,25 +4,6 @@
 
     var app = angular.module('app', ['ngResource']);
 
-    function MainController($scope) {
-        var thisCtrl = this;
-    }
-
-    app.controller('MainController', ['$scope', MainController]);
-
-    function PollFactory($resource) {
-        var api = $resource("http://localhost:8081/poll-data", {
-            callback: "JSON_CALLBACK"
-        }, {
-            get: {
-                method: "JSONP"
-            }
-        });
-
-        return api;
-    }
-
-    app.factory('PollFactory', ['$resource', PollFactory]);
 
     function PollDirective($timeout, PollFactory) {
         return {
