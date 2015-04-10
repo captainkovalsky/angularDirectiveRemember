@@ -1,6 +1,15 @@
-describe('main', function () {
+describe('PollFactory tests', function () {
+    var PollFactory;
 
-    it('should be true', function () {
-        expect(true).toBe(true);
+    beforeEach(function () {
+        module('app');
+        inject(function (_PollFactory_) {
+            PollFactory = _PollFactory_;
+        });
     });
+
+    it('poll service should be defined', function () {
+        expect(PollFactory).toBeDefined();
+    });
+
 });
