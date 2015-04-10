@@ -6,17 +6,16 @@
              restrict: 'E',
              templateUrl: 'poll-template.html',
              scope: {
-                 styleClass: '@styleClass'
+                 styleClass: '@styleClass',
              },
              link: function (scope, element, attrs) {
-                 scope.loadedPoll = false;
+                 scope.loading = true;
+                 scope.error = false;
                  PollFactory.get({
                      id: attrs.pollId
-                 }, scope.renderPoll, scope.renderLoadingError);
-
-                 $timeout(function () {
-                     scope.loadedPoll = true;
-                 }, 3000);
+                 }, scope.renderPoll, scope.renderLoadingError).$promise.finally(function () {
+                     scope.loading = false;
+                 });
              },
 
              controller: function ($scope) {
@@ -28,7 +27,7 @@
                  };
 
                  $scope.renderLoadingError = function () {
-                     alert('error during loading poll');
+                     $scope.error = true;
                  }
              }
          };

@@ -6,8 +6,9 @@
   }
 </style>
 <div class="poll {{styleClass}}">
-  <img ng-if="!poll" src="ajax-loader.gif" />
 
+  <img ng-if="loading" src="ajax-loader.gif" />
+  
   <div ng-if="poll">
     <form name="pollForm">
   
@@ -20,5 +21,7 @@
     
     </form>
   </div>
+
+  <div ng-if="error">Error occurred.</div>
 
 </div>
