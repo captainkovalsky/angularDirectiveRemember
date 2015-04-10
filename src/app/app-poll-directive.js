@@ -21,8 +21,7 @@
 
              controller: function ($scope) {
                  $scope.submitAnswer = function () {
-                     var pollViewModel = $scope.poll;
-                     console.log('submit answer[pollId, answerId]:', pollViewModel.pollId, pollViewModel.selectedAnswerId);
+                     console.log('submit answer[pollId, answerId]:', $scope.poll.pollId, $scope.poll.selectedAnswerId);
                  };
                  $scope.renderPoll = function (poll) {
                      $scope.poll = poll;
