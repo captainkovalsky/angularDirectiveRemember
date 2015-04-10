@@ -5,9 +5,7 @@
          return {
              restrict: 'E',
              templateUrl: 'poll-template.html',
-             scope: {
-                 styleClass: '@styleClass',
-             },
+             scope: true,
              link: function (scope, element, attrs) {
                  scope.loading = true;
                  scope.error = false;
@@ -21,6 +19,12 @@
              controller: function ($scope) {
                  $scope.submitAnswer = function () {
                      console.log('submit answer[pollId, answerId]:', $scope.poll.pollId, $scope.poll.selectedAnswerId);
+                     PollFactory.save({
+                         pollId: 1,
+                         answerId: 1
+                     }, function () {
+                         console.log('1');
+                     });
                  };
                  $scope.renderPoll = function (poll) {
                      $scope.poll = poll;

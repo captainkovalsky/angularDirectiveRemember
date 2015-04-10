@@ -1,12 +1,4 @@
-<style>
-  .poll{
-    padding: 15px 4px;
-    display: inline-block;
-    max-width: 200px;
-  }
-</style>
-<div class="poll {{styleClass}}">
-
+<div class="poll">
   <img ng-if="loading" src="ajax-loader.gif" />
   
   <div ng-if="poll">
@@ -14,14 +6,16 @@
   
       <p class="poll__title">{{poll.title}}</p>
       
-      <ul class="poll__answer" ng-repeat="answer in ::poll.answers">
-        <input type="radio" ng-model="poll.selectedAnswerId" ng-value="{{answer.id}}">{{answer.text}} <br/>
-      </ul>
-      <button ng-disabled="pollForm.$pristine" ng-click="submitAnswer();">Submit</button> 
+      <div class="poll__answer" ng-repeat="answer in ::poll.answers">
+        <input name="poll_{{poll.pollId}}" id="poll_{{poll.pollId}}_{{answer.id}}" type="radio" ng-model="poll.selectedAnswerId" ng-value="{{answer.id}}">
+        <label for="poll_{{poll.pollId}}_{{answer.id}}">{{answer.text}}</label>
+          <br/>
+      </div>
+
+      <button class="poll__submit" ng-disabled="pollForm.$pristine" ng-click="submitAnswer();">Submit</button> 
     
     </form>
   </div>
 
   <div ng-if="error">Error occurred.</div>
-
 </div>

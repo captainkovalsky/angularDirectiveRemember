@@ -1,13 +1,9 @@
-function PollFactory($resource) {
-    var api = $resource("http://localhost:8081/poll-data", {
-        callback: "JSON_CALLBACK"
-    }, {
-        get: {
-            method: "JSONP"
-        }
-    });
+(function () {
+    'use strict';
 
-    return api;
-}
+    function PollFactory($resource) {
+        return $resource("http://localhost:8081/poll-data");
+    }
 
-angular.module('app').factory('PollFactory', ['$resource', PollFactory]);
+    angular.module('app').factory('PollFactory', ['$resource', PollFactory]);
+})();

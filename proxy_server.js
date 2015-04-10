@@ -1,7 +1,13 @@
 var express = require('express');
 var app = express();
 
-app.set('jsonp callback name', 'callback');
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 var pollData = [{
     pollId: 1,
     title: "What would you like to buy ... ?",
@@ -59,11 +65,14 @@ app.get('/poll-data', validationRequest, function (req, res) {
         return res.status(404).send();
     }
     setTimeout(function () {
-        res.jsonp(found);
+        res.json(found);
     }, 3000);
 });
 
 app.post('/poll-data', function (req, res) {
+    var pollId = req.body.pollId;
+    var answerId = req.body.answerId;
+    console.log('pollId, answerId:', pollId, answerId);
     return res.send(200);
 });
 

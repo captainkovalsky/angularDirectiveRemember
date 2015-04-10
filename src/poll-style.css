@@ -1,0 +1,50 @@
+  /* @TODO: should be refactored with according to BEM methodology */
+  .poll{
+    display: inline-block;
+    max-width: 200px;
+    min-height: 10px;
+
+    border: 2px rgb(163, 158, 158) solid;
+    padding: 5px;
+    border-radius: 20px;
+  }
+
+  .poll__title{
+    font-weight: bold;
+    padding: 0px 20px;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .poll__answer{
+    margin: 0 auto;
+    display: block;
+    max-width: 120px;
+    padding: 5px;
+  }
+
+  .poll__answer:hover{
+    background: rgb(174, 253, 172);
+    border-radius: 20px;
+  }
+
+  .poll__submit{
+    margin: 25px auto;
+    padding: 5px 10px;
+    font-size: 16px;
+    outline: 0;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    background: rgb(57, 126, 126);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .poll__submit:hover{
+    cursor: pointer;
+    color: rgb(73, 25, 25);
+    background: rgb(193, 237, 195);
+  }
