@@ -6,11 +6,14 @@
   }
 </style>
 <div class="poll {{styleClass}}">
-<img ng-if="!loadedPoll" src="ajax-loader.gif" />
+<img ng-if="!poll" src="ajax-loader.gif" />
 
-<div ng-if="loadedPoll">
-<p>Poll has been loaded</p>
+<div ng-if="poll">
+<p class="poll__title">{{poll.title}}</p>
+<ul class="poll__answer" ng-repeat="answer in ::poll.answers">
+<input type="radio" ng-model="poll.selectedAnswerId" ng-value="{{answer.id}}">{{answer.text}} <br/>
+</ul>
 <button ng-click="submitAnswer();">Submit</button> 
-
+<div>{{poll.selected | json}}</div>
 </div>
 </div>
