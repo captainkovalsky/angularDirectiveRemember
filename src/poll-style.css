@@ -1,9 +1,8 @@
   /* @TODO: should be refactored with according to BEM methodology */
   .poll{
     display: inline-block;
-    max-width: 200px;
-    min-height: 10px;
-
+    min-height: 200px;
+    max-width: 220px;
     border: 2px rgb(163, 158, 158) solid;
     padding: 5px;
     border-radius: 20px;
@@ -27,6 +26,16 @@
   .poll__answer:hover{
     background: rgb(174, 253, 172);
     border-radius: 20px;
+  }
+
+  .poll__result{
+    min-height: 200px;
+    display: table;
+  }
+
+  .poll__result > span{
+    display: table-cell;
+    vertical-align: middle;
   }
 
   .poll__submit{

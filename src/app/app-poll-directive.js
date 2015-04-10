@@ -7,13 +7,10 @@
              templateUrl: 'poll-template.html',
              scope: true,
              link: function (scope, element, attrs) {
-                 scope.loading = true;
-                 scope.error = false;
+                 scope.pollState = 'loading';
                  PollFactory.get({
                      id: attrs.pollId
-                 }, scope.renderPoll, scope.renderLoadingError).$promise.finally(function () {
-                     scope.loading = false;
-                 });
+                 }, scope.renderPoll, scope.renderLoadingError).$promise.finally(function () {});
              },
 
              controller: function ($scope) {
@@ -25,13 +22,16 @@
                      }, function () {
                          console.log('1');
                      });
+                     //finished
+                     $scope.pollState = 'finished';
                  };
                  $scope.renderPoll = function (poll) {
+                     $scope.pollState = 'answering';
                      $scope.poll = poll;
                  };
 
                  $scope.renderLoadingError = function () {
-                     $scope.error = true;
+                     $scope.pollState = 'error';
                  }
              }
          };
