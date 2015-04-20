@@ -64,9 +64,9 @@ app.get('/poll-data', validationRequest, function (req, res) {
     if (found === null) {
         return res.status(404).send();
     }
-    setTimeout(function () {
-        res.json(found);
-    }, 3000);
+    // setTimeout(function () {
+    res.json(found);
+    // }, 3000);
 });
 
 app.post('/poll-data', function (req, res) {

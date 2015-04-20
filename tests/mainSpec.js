@@ -9,7 +9,8 @@ describe('PollFactory tests', function () {
     });
 
     it('poll service should be defined', function () {
-        expect(PollFactory).toBeDefined();
+        expect(PollFactory)
+            .toBeDefined();
     });
 
 });

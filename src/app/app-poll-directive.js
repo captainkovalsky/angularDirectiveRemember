@@ -4,7 +4,7 @@
      function PollDirective($timeout, PollFactory) {
          return {
              restrict: 'E',
-             templateUrl: 'poll-template.html',
+             templateUrl: 'app/poll-directive/poll-template.html',
              scope: true,
              link: function (scope, element, attrs) {
                  scope.pollState = 'loading';
